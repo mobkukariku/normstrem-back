@@ -7,8 +7,8 @@ import {Vote} from "./vote.schema";
 export class VoteService {
     constructor(@InjectModel('Vote') private voteModel: Model<Vote>) {}
 
-    async saveVote(userId: string, vote: boolean): Promise<Vote> {
-        const newVote = new this.voteModel({ vote, userId });
-        return newVote.save();
+    async saveVote(userId: string, questionId: string, vote: boolean): Promise<Vote> {
+        const data = new this.voteModel({ userId, questionId, vote });
+        return await data.save();
     }
 }

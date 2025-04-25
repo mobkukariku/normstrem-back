@@ -4,7 +4,6 @@ import { VoteService } from './vote.service';
 import {VoteSchema} from "./vote.schema";
 import {MongooseModule} from "@nestjs/mongoose";
 import {UserSchema} from "../user/user.schema";
-import {VoteGateway} from "./vote.gateway";
 import {UserModule} from "../user/user.module";
 import {QuestionModule} from "../question/question.module";
 
@@ -17,6 +16,6 @@ import {QuestionModule} from "../question/question.module";
             { name: 'Vote', schema: VoteSchema }]),
     ],
   controllers: [VoteController],
-  providers: [VoteService, VoteGateway],
+  providers: [VoteService],
 })
 export class VoteModule {}
